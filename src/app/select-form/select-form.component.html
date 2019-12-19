@@ -12,7 +12,8 @@
     role="alert"
     *ngIf="textThingControl.touched && textThingControl.invalid"
   >
-    TEXT Thing is required.
+    TEXT Thing is required - this kind of error should show for each select
+    below
   </p>
 
   <igx-select
@@ -23,7 +24,9 @@
     <igx-select-item *ngFor="let thing of things" [value]="thing">
       {{ thing.name }}
     </igx-select-item>
-    <label igxLabel for="selectAnotherThing">Select Another Thing</label>
+    <label igxLabel for="selectAnotherThing"
+      >Select Another Thing (updateOn:blur)</label
+    >
   </igx-select>
 
   <p
