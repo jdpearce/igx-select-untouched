@@ -28,10 +28,15 @@ export class SelectFormComponent implements OnInit {
   form: FormGroup;
   textThingControl: FormControl;
   selectThingControl: FormControl;
+  selectAnotherThingControl: FormControl;
 
   constructor() {
     this.selectThingControl = new FormControl(null, {
       validators: [Validators.required]
+    });
+    this.selectAnotherThingControl = new FormControl(null, {
+      validators: [Validators.required],
+      updateOn: 'blur'
     });
     this.textThingControl = new FormControl(null, {
       validators: [Validators.required]
@@ -39,7 +44,8 @@ export class SelectFormComponent implements OnInit {
 
     this.form = new FormGroup({
       textThing: this.textThingControl,
-      selectThing: this.selectThingControl
+      selectThing: this.selectThingControl,
+      selectAnotherThing: this.selectAnotherThingControl
     });
   }
 

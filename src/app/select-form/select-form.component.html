@@ -15,6 +15,27 @@
     TEXT Thing is required.
   </p>
 
+  <igx-select
+    #select
+    name="selectAnotherThing"
+    formControlName="selectAnotherThing"
+  >
+    <igx-select-item *ngFor="let thing of things" [value]="thing">
+      {{ thing.name }}
+    </igx-select-item>
+    <label igxLabel for="selectAnotherThing">Select Another Thing</label>
+  </igx-select>
+
+  <p
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="
+      selectAnotherThingControl.touched && selectAnotherThingControl.invalid
+    "
+  >
+    SELECT ANOTHER Thing is required.
+  </p>
+
   <igx-select #select name="selectThing" formControlName="selectThing">
     <igx-select-item *ngFor="let thing of things" [value]="thing">
       {{ thing.name }}
