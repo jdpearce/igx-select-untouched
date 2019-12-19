@@ -1,0 +1,32 @@
+<form [formGroup]="form" class="container">
+  <igx-input-group>
+    <input igxInput name="name" type="text" formControlName="textThing" />
+    <label igxLabel for="name">Name</label>
+    <igx-suffix>
+      <igx-icon>group</igx-icon>
+    </igx-suffix>
+  </igx-input-group>
+
+  <p
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="textThingControl.touched && textThingControl.invalid"
+  >
+    TEXT Thing is required.
+  </p>
+
+  <igx-select #select name="selectThing" formControlName="selectThing">
+    <igx-select-item *ngFor="let thing of things" [value]="thing">
+      {{ thing.name }}
+    </igx-select-item>
+    <label igxLabel for="selectThing">Select Thing</label>
+  </igx-select>
+
+  <p
+    class="alert alert-danger"
+    role="alert"
+    *ngIf="selectThingControl.touched && selectThingControl.invalid"
+  >
+    SELECT Thing is required.
+  </p>
+</form>
